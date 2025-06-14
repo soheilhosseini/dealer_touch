@@ -3,7 +3,6 @@ import { DATA_URL, UPDATE_DELAY_MILISECOND } from "../constants";
 import { DataContext } from "../stores/dataContext";
 import type { DataType } from "../types/types";
 import { handleAddTolist } from "../utils/general";
-import { StatisticsContext } from "../stores/statisticsContext";
 
 const useDataProvider = () => {
   const [data, setData] = useContext(DataContext);

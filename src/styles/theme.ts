@@ -6,7 +6,7 @@ const theme = createTheme({
 
     primary: {
       main: "#2563EB",
-      light: "#60A5FA",
+      light: "#2563EB1A",
       dark: "#1E40AF",
       contrastText: "#ffffff",
     },
@@ -80,6 +80,11 @@ const theme = createTheme({
     h5: {
       fontSize: "0.875rem", // 14px
       fontWeight: 500,
+      lineHeight: 1.5,
+    },
+    h6: {
+      fontSize: "0.75rem", // 12px
+      fontWeight: 400,
       lineHeight: 1.5,
     },
   },

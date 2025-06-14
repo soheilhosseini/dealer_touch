@@ -1,4 +1,4 @@
-import type { ServerDataItem, ServerDataItemType } from "./entities";
+import type { ServerDataItem } from "./entities";
 
 export interface RowItem {
   title: string;
@@ -10,21 +10,12 @@ export interface CardInterface {
   title: string;
 }
 
-export type DataType = Record<ServerDataItem["server_name"], Partial<ServerDataItem>[]>;
+export type DataType = Record<
+  ServerDataItem["server_name"],
+  Partial<ServerDataItem>[]
+>;
 
-export type URLType = {
-  bot: number;
-  notABot: number;
-  minor: number;
-  major: number;
-  type: Partial<Record<ServerDataItemType, number>>;
-  total: number;
-  second: number;
-  minute: number;
-  hour: number;
-};
-
-export type StatisticsType = Record<string, URLType>;
+export type StatisticsType = Partial<ServerDataItem>[];
 
 export interface TitleInterface {
   title: string;

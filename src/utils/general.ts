@@ -1,5 +1,5 @@
 import type { ServerDataItem } from "../types/entities";
-import type { DataType } from "../types/types";
+import type { DataType, StatisticsType } from "../types/types";
 
 const startDate = Math.floor(new Date().getTime() / 1000);
 
@@ -20,7 +20,7 @@ export const handleAddTolist = (list: DataType, data: ServerDataItem) => {
   list["All wikis"].unshift(minimizedData);
 };
 
-export const handleRateCalculator = (data: ServerDataItem[]) => {
+export const handleRateCalculator = (data: StatisticsType) => {
   const now = Math.floor(new Date().getTime() / 1000);
   const handleCounterInDuration = numberOfItemsPublishedInADuration(data)(now);
   const averageAccordingToSeconds = averageCalculator(data)(startDate)(now);
@@ -35,17 +35,17 @@ export const handleRateCalculator = (data: ServerDataItem[]) => {
 };
 
 const averageCalculator =
-  (data: ServerDataItem[]) =>
+  (data: StatisticsType) =>
   (startDate: number) =>
   (now: number) =>
   (duration: number) =>
     Math.floor((data.length / (now - startDate)) * duration);
 
 const numberOfItemsPublishedInADuration =
-  (data: ServerDataItem[]) => (now: number) => (duration: number) => {
+  (data: StatisticsType) => (now: number) => (duration: number) => {
     let number = 0;
     for (let index = 0; index < data.length; index++) {
-      if (now - data[index].timestamp > duration) {
+      if (now - data[index].timestamp! > duration) {
         break;
       }
       number = index + 1;

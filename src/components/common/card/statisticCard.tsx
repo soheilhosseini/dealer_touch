@@ -1,15 +1,16 @@
-import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import FilledEarthIcon from "../../../assets/icons/earth";
 import IconWithSqureBackground from "../icons/iconWithSqureBackground";
 import OutlinedEarthIcon from "../../../assets/icons/outlinedEarth";
 import { addCommas, handleRateCalculator } from "../../../utils/general";
-import type { ServerDataItem } from "../../../types/entities";
+import type { StatisticsType } from "../../../types/types";
+import CardWrapper from "./cardWrapper";
+import { Box } from "@mui/material";
 
 interface Props {
   isSelected: boolean;
-  data: ServerDataItem[];
+  data: StatisticsType;
   onClick: () => void;
   title: string;
 }
@@ -26,18 +27,10 @@ export default function StatisticCard({
   const secondText = `${addCommas(second)} (avg: ${addCommas(secondAvg)})`;
   const minuteText = `${addCommas(minute)} (avg: ${addCommas(minuteAvg)})`;
   const hourText = `${addCommas(hour)} (avg: ${addCommas(hourAvg)})`;
+
   return (
-    <Card
-      variant="outlined"
-      sx={{
-        width: "288px",
-        cursor: "pointer",
-        borderColor: isSelected ? "primary.main" : "",
-        transition: "100ms",
-      }}
-      onClick={onClick}
-    >
-      <Stack direction={"column"}>
+    <CardWrapper onClick={onClick} isSelected={isSelected}>
+      <Box sx={{ width: "240px" }}>
         <Stack
           direction="row"
           sx={{
@@ -66,8 +59,8 @@ export default function StatisticCard({
           <RowItem title={"Post minute"} value={minuteText} />
           <RowItem title={"Post hour"} value={hourText} />
         </Stack>
-      </Stack>
-    </Card>
+      </Box>
+    </CardWrapper>
   );
 }
 

@@ -1,6 +1,6 @@
 import { Box, Grid, TableContainer } from "@mui/material";
 import { useState } from "react";
-import CardsContainer from "../components/cardsContainer";
+import StatisticsContainer from "../components/StatisticsContainer";
 import ChartsContainer from "../components/chartsContainer";
 import PageSection from "../components/sections/pageSection";
 import { texts } from "../constants";
@@ -15,7 +15,7 @@ const list: ListItemInterface[] = [
       isMainTitle: true,
       titleExtraComponent: 1,
     },
-    children: <CardsContainer />,
+    children: <StatisticsContainer />,
   },
   {
     title: {
