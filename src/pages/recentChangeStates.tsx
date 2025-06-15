@@ -1,11 +1,11 @@
-import { Box, Grid, TableContainer } from "@mui/material";
-import { useState } from "react";
+import { Box, Grid } from "@mui/material";
 import StatisticsContainer from "../components/StatisticsContainer";
 import ChartsContainer from "../components/chartsContainer";
 import PageSection from "../components/sections/pageSection";
 import { texts } from "../constants";
 import useDataProvider from "../hooks/useDataProvider";
 import type { ListItemInterface } from "../types/types";
+import TableContainer from "../components/tableContainer";
 
 const list: ListItemInterface[] = [
   {
@@ -27,18 +27,13 @@ const list: ListItemInterface[] = [
   {
     title: {
       title: "Recent Events",
-      description: "Title",
     },
     children: <TableContainer />,
   },
 ];
 
 const RecentChangeStates = () => {
-  useDataProvider();
-
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  const handleSelectItem = () => {};
+  // useDataProvider();
 
   return (
     <Grid
@@ -49,7 +44,7 @@ const RecentChangeStates = () => {
       sx={{ pb: 18 }}
     >
       {list.map((item, index) => (
-        <Box key={item.title.title + index} sx={{ mt: 18 }}>
+        <Box key={item.title.title + index} sx={{ mt: 18 , width: '100%' }}>
           <PageSection titleData={item.title}>{item.children}</PageSection>
         </Box>
       ))}

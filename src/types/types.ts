@@ -19,7 +19,7 @@ export type StatisticsType = Partial<ServerDataItem>[];
 
 export interface TitleInterface {
   title: string;
-  description: string;
+  description?: string;
   isMainTitle?: boolean;
   titleExtraComponent?: React.ReactNode;
 }
@@ -27,4 +27,8 @@ export interface TitleInterface {
 export interface ListItemInterface {
   title: TitleInterface;
   children: React.ReactNode;
+}
+
+export interface MainContext {
+  selectedItem: ServerDataItem["server_name"];
 }

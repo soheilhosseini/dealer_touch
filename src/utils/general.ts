@@ -4,13 +4,15 @@ import type { DataType, StatisticsType } from "../types/types";
 const startDate = Math.floor(new Date().getTime() / 1000);
 
 export const handleAddTolist = (list: DataType, data: ServerDataItem) => {
-  const { type, bot, server_name, minor } = data;
+  const { type, bot, server_name, minor, user, title } = data;
   const minimizedData = {
     type,
-    // I have used my own timestamps because the server sends items with no order and I can get rid of the sorting data
+    // I have used my own timestamps because the server sends unorder items and by this I can get rid of the sorting data
     timestamp: Math.floor(new Date().getTime() / 1000),
     bot,
     minor,
+    user,
+    title,
   };
   if (list[server_name]) {
     list[server_name].unshift(minimizedData);

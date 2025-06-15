@@ -52,7 +52,7 @@ import useChartsProvider from "../hooks/useChartsProvider";
 // ];
 
 const ChartsContainer = () => {
-  const { TypesArray, botsArray, majorMinorArray, editsTimeArray } =
+  const { typesArray, botsArray, majorMinorArray, editsTimeArray } =
     useChartsProvider();
   const [mainState] = useContext(MainContext);
   const { selectedItem } = mainState;
@@ -64,7 +64,7 @@ const ChartsContainer = () => {
         sx={{ justifyContent: "space-between" }}
         spacing={6}
       >
-        <BarChartCard data={TypesArray} title="Type of Event" />
+        <BarChartCard data={typesArray} title="Type of Event" />
         <BarChartCard data={botsArray} title="Posted by bot?" />
         <BarChartCard data={majorMinorArray} title="Major or Minor edit?" />
       </Stack>

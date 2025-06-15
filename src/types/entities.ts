@@ -6,4 +6,6 @@ export type ServerDataItem = {
   minor?: boolean;
   timestamp: number;
   server_name: string;
+  user: string;
+  title: string;
 };

@@ -5,7 +5,7 @@ import type { DataType } from "../types/types";
 import { handleAddTolist } from "../utils/general";
 
 const useDataProvider = () => {
-  const [data, setData] = useContext(DataContext);
+  const [_, setData] = useContext(DataContext);
 
   const dataRef = useRef<DataType>({ "All wikis": [] });
 
